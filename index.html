@@ -1,872 +1,574 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-<meta name="description" content="رائد المجال لاستيراد السيارات وقطع غيارها والشاحنات والمعدات الثقيلة وقطع غيارها. طرابلس، ليبيا.">
-
-<title>RAED ALMAGAL | Vehicle Import</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101112">
+<meta name="description" content="رائد المجال لاستيراد السيارات والشاحنات والمعدات الثقيلة وقطع غيارها — طرابلس، ليبيا.">
+<title>رائد المجال | RAED ALMAGAL</title>
 
 <style>
-:root {
-  --gold: #d6ad55;
-  --background: #080808;
-  --panel: #111;
-  --border: #292929;
-  --muted: #c4c4c4;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 110px;
-}
-
-body {
-  background: var(--background);
-  color: white;
-  font-family: Arial, sans-serif;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, input {
-  font: inherit;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 4px;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(5,5,5,.97);
-  padding: 18px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  z-index: 1000;
-  border-bottom: 1px solid #222;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--gold);
-  white-space: nowrap;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  font-size: 15px;
-  transition: color .2s;
-}
-
-.nav-links a:hover {
-  color: var(--gold);
-}
-
-.hero {
-  min-height: 520px;
-  padding: 160px 7% 80px;
-  display: flex;
-  align-items: center;
-  background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80")
-    center/cover;
-}
-
-.hero h1 {
-  font-size: clamp(36px,6vw,62px);
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero h1 span,
-.section-title span {
-  color: var(--gold);
-}
-
-.hero p {
-  font-size: 20px;
-  color: #ddd;
-}
-
-.hero-arabic {
-  margin-top: 16px;
-  max-width: 640px;
-  line-height: 1.9;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
-
-.gold-button,
-.outline-button {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.gold-button {
-  background: var(--gold);
-  color: #111;
-}
-
-.outline-button {
-  border: 1px solid #777;
-  background: rgba(0,0,0,.3);
-}
-
-.section {
-  padding: 75px 6%;
-}
-
-.section-inner {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.section-title {
-  text-align: center;
-  font-size: clamp(28px,4vw,38px);
-  margin-bottom: 34px;
-  line-height: 1.5;
-}
-
-.eyebrow {
-  display: block;
-  color: var(--gold);
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 12px;
-}
-
-.arabic {
-  direction: rtl;
-  text-align: right;
-  line-height: 1.95;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 45px;
-  align-items: center;
-}
-
-.about-heading {
-  font-size: clamp(28px,4vw,40px);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.about-heading span {
-  color: var(--gold);
-}
-
-.about-text {
-  color: var(--muted);
-  font-size: 18px;
-}
-
-.about-text + .about-text {
-  margin-top: 14px;
-}
-
-.about-panel {
-  padding: 32px;
-  background: linear-gradient(145deg,#171717,#101010);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--gold);
-  border-radius: 12px;
-}
-
-.about-panel h3 {
-  color: var(--gold);
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-.about-panel p {
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.about-location {
-  display: inline-block;
-  margin-top: 22px;
-  padding: 8px 16px;
-  border: 1px solid #49402b;
-  border-radius: 6px;
-  color: #e6d3a8;
-}
-
-.activities {
-  background: #0d0d0d;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-
-.section-intro {
-  max-width: 760px;
-  margin: -12px auto 34px;
-  color: var(--muted);
-  text-align: center;
-  font-size: 17px;
-}
-
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 22px;
-}
-
-.activity-card {
-  padding: 30px;
-  background: #141414;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.activity-number {
-  display: inline-block;
-  font-size: 15px;
-  color: var(--gold);
-  border-bottom: 2px solid var(--gold);
-  padding-bottom: 7px;
-  margin-bottom: 20px;
-}
-
-.activity-card h3 {
-  font-size: 23px;
-  margin-bottom: 12px;
-}
-
-.activity-card p {
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.import-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 18px;
-}
-
-.import-card {
-  padding: 28px;
-  border: 1px solid var(--border);
-  border-right: 3px solid var(--gold);
-  border-radius: 10px;
-  background: #111;
-}
-
-.import-card h3 {
-  color: var(--gold);
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.import-card p {
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.search-box {
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-.search-box input {
-  width: 100%;
-  padding: 17px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background: #111;
-  color: white;
-  font-size: 16px;
-}
-
-.cars-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 25px;
-}
-
-.car-card {
-  background: #111;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform .25s, border-color .25s;
-}
-
-.car-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
-
-.car-image {
-  position: relative;
-  height: 240px;
-  background: #000;
-}
-
-.car-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.image-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0,0,0,.75);
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.image-counter {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0,0,0,.8);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.car-info {
-  padding: 22px;
-}
-
-.car-info h3 {
-  color: var(--gold);
-  font-size: 23px;
-  line-height: 1.4;
-  margin-bottom: 12px;
-}
-
-.specs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin: 15px 0;
-  color: #ccc;
-  font-size: 14px;
-}
-
-.price {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 15px 0;
-}
-
-.whatsapp {
-  display: block;
-  text-align: center;
-  background: #25D366;
-  color: #082f16;
-  padding: 13px;
-  border-radius: 7px;
-  font-weight: bold;
-}
-
-.empty {
-  text-align: center;
-  color: #ccc;
-  margin-top: 25px;
-}
-
-.company-info {
-  max-width: 1100px;
-  margin: 30px auto 70px;
-  padding: 42px 30px;
-  text-align: center;
-  background: linear-gradient(145deg,#0f0f0f,#181818);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-}
-
-.company-info h2 {
-  font-size: 32px;
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-
-.company-subtitle {
-  font-size: 17px;
-  color: #ccc;
-  margin-bottom: 12px;
-}
-
-.company-arabic {
-  font-size: 18px;
-  line-height: 1.9;
-  color: #ccc;
-  margin-bottom: 30px;
-}
-
-.company-cards {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-}
-
-.info-card {
-  display: block;
-  padding: 24px 14px;
-  background: rgba(255,255,255,.035);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow-wrap: anywhere;
-}
-
-.info-card h3 {
-  color: var(--gold);
-  margin-bottom: 8px;
-  font-size: 18px;
-}
-
-.info-card p {
-  font-size: 16px;
-  color: #ddd;
-}
-
-.contact {
-  text-align: center;
-  border-top: 1px solid #222;
-}
-
-.contact p {
-  margin: 12px 0;
-  color: #ccc;
-  font-size: 17px;
-}
-
-.contact .whatsapp {
-  max-width: 300px;
-  margin: 25px auto 0;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #050505;
-  color: #aaa;
-  font-size: 14px;
-}
-
-@media(max-width:1000px) {
-  nav {
-    flex-direction: column;
-    gap: 12px;
-    padding: 14px 5%;
-  }
-
-  .nav-links {
-    justify-content: center;
-    gap: 12px 18px;
-  }
-
-  html { scroll-padding-top: 155px; }
-
-  .cars-grid { grid-template-columns: repeat(2,1fr); }
-  .about-grid { grid-template-columns: 1fr; gap: 25px; }
-  .activity-grid { grid-template-columns: 1fr; }
-}
-
-@media(max-width:650px) {
-  .logo { font-size: 20px; }
-  .nav-links { gap: 8px 14px; }
-  .nav-links a { font-size: 14px; }
-
-  .hero {
-    min-height: 480px;
-    padding: 180px 6% 55px;
-  }
-
-  .hero p { font-size: 17px; }
-
-  .section { padding: 50px 5%; }
-
-  .cars-grid,
-  .import-grid,
-  .company-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .about-panel,
-  .activity-card,
-  .import-card {
-    padding: 24px;
-  }
-
-  .company-info {
-    margin: 20px 5% 50px;
-    padding: 30px 18px;
-  }
-
-  .hero-actions a {
-    flex: 1;
-    text-align: center;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  html { scroll-behavior: auto; }
-  .car-card { transition: none; }
+:root{
+  --bg:#101112;
+  --panel:#191b1d;
+  --silver:#d9dde1;
+  --muted:#b8bdc3;
+  --line:#383c40;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{
+  background:var(--bg);
+  color:#f5f6f7;
+  font-family:Tahoma,Arial,sans-serif;
+  line-height:1.9;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button,a,input{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+[hidden]{display:none!important}
+.container{width:min(1120px,calc(100% - 36px));margin:auto}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(16,17,18,.97);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  min-height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+.logo{
+  font-family:Arial,sans-serif;
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:var(--silver);
+  white-space:nowrap;
+}
+.links{display:flex;gap:23px;align-items:center}
+.links a{font-size:15px;color:#c9cdd1}
+.links a:hover{color:white}
+.hero{
+  padding:65px 0;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  align-items:center;
+  gap:45px;
+}
+.kicker{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:14px;
+}
+h1{
+  font-size:clamp(38px,5.5vw,66px);
+  line-height:1.4;
+  color:var(--silver);
+  margin-bottom:18px;
+}
+.hero p{
+  font-size:19px;
+  color:#cbd0d5;
+  max-width:540px;
+}
+.hero-photo{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border:1px solid var(--line);
+  border-radius:9px;
+}
+.button{
+  display:inline-block;
+  padding:12px 26px;
+  border-radius:5px;
+  font-weight:bold;
+  font-size:16px;
+}
+.silver-button{
+  background:var(--silver);
+  color:#17191b;
+}
+.hero .button{margin-top:28px}
+section{padding:65px 0}
+.section-heading{
+  text-align:center;
+  font-size:clamp(27px,3.5vw,36px);
+  color:var(--silver);
+  line-height:1.5;
+  margin-bottom:22px;
+}
+.section-heading:after{
+  content:"";
+  display:block;
+  width:45px;
+  height:2px;
+  margin:18px auto 0;
+  background:#a4aab0;
+}
+.intro{
+  max-width:790px;
+  margin:0 auto;
+  text-align:center;
+  color:var(--muted);
+  font-size:18px;
+}
+.activity{
+  max-width:850px;
+  margin:32px auto 0;
+  padding:25px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:8px;
+  text-align:center;
+}
+.activity h3{
+  font-size:23px;
+  color:var(--silver);
+  margin-bottom:9px;
+}
+.activity p{font-size:17px;color:var(--muted)}
+.fields{padding-top:0}
+.field-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:30px;
+}
+.field{
+  background:#151719;
+  border:1px solid #4a4f55;
+  border-radius:7px;
+  padding:32px 24px;
+  text-align:center;
+}
+.field h3{
+  color:var(--silver);
+  font-size:22px;
+  margin-bottom:15px;
+}
+.field p{color:var(--muted);font-size:17px}
+.stock{
+  background:#0c0d0e;
+  border-top:1px solid #50555a;
+  border-bottom:1px solid var(--line);
+}
+.stock-intro{
+  text-align:center;
+  color:var(--muted);
+  font-size:16px;
+  margin-bottom:28px;
+}
+.search-wrap{
+  max-width:780px;
+  margin:0 auto 35px;
+}
+.search-wrap input{
+  width:100%;
+  padding:16px 20px;
+  background:#191b1d;
+  border:1px solid #565c62;
+  border-radius:7px;
+  color:white;
+  font-size:16px;
+}
+.search-wrap input::placeholder{color:#b3b9bf}
+.car-list{display:grid;gap:24px}
+.car{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  direction:ltr;
+  border:1px solid #43484e;
+  border-radius:9px;
+  overflow:hidden;
+  background:var(--panel);
+}
+.gallery{
+  position:relative;
+  min-height:310px;
+  background:#08090a;
+}
+.gallery img{
+  width:100%;
+  height:100%;
+  min-height:310px;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:1px solid #666;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:rgba(0,0,0,.75);
+  color:white;
+  font-size:28px;
+  line-height:1;
+}
+.previous{left:12px}
+.next{right:12px}
+.counter{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  background:rgba(0,0,0,.8);
+  color:white;
+  padding:4px 12px;
+  border-radius:5px;
+  font:14px/1.7 Arial,sans-serif;
+}
+.car-info{
+  padding:28px;
+  direction:rtl;
+  display:flex;
+  flex-direction:column;
+}
+.car-info h3{
+  direction:ltr;
+  text-align:right;
+  font-family:Arial,sans-serif;
+  font-size:25px;
+  line-height:1.4;
+  margin-bottom:20px;
+  color:#e4e7eb;
+}
+.specs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px 18px;
+  margin-bottom:20px;
+}
+.spec{
+  padding-bottom:9px;
+  border-bottom:1px solid #30353a;
+}
+.spec span{
+  display:block;
+  color:#aeb5bd;
+  font-size:14px;
+}
+.spec strong{
+  font-size:16px;
+  font-weight:500;
+  color:#e3e7eb;
+}
+.price{
+  font-size:23px;
+  color:var(--silver);
+  font-weight:bold;
+  margin:0 0 18px;
+}
+.whatsapp{
+  display:block;
+  text-align:center;
+  border:1px solid #78c692;
+  border-radius:6px;
+  color:#a5edbc;
+  background:#13231a;
+  padding:11px 17px;
+  font-weight:bold;
+  margin-top:auto;
+}
+.whatsapp:hover{background:#1c3526}
+.empty{text-align:center;color:var(--muted);padding:25px}
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+.contact-card{
+  border:1px solid var(--line);
+  background:#17191b;
+  border-radius:7px;
+  padding:24px 15px;
+  text-align:center;
+  overflow-wrap:anywhere;
+}
+.contact-card h3{
+  color:var(--silver);
+  font-size:18px;
+  margin-bottom:10px;
+}
+.contact-card p{font-size:16px;color:var(--muted)}
+.contact-action{max-width:300px;margin:25px auto 0}
+footer{
+  padding:28px 18px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  color:#aeb4ba;
+  font-size:14px;
+}
+footer strong{
+  display:block;
+  color:var(--silver);
+  font:700 21px Arial,sans-serif;
+  margin-bottom:12px;
+}
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid #e2e5e8;
+  outline-offset:4px;
+}
+@media(max-width:900px){
+  .nav{flex-direction:column;padding:14px 0;gap:12px}
+  .links{flex-wrap:wrap;justify-content:center;gap:10px 19px}
+  html{scroll-padding-top:145px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero{padding:40px 0}
+  .hero-photo{max-height:430px}
+  .field-grid{grid-template-columns:1fr}
+  .car-info{padding:23px}
+  .car-info h3{font-size:22px}
+}
+@media(max-width:650px){
+  section{padding:45px 0}
+  .fields{padding-top:0}
+  .logo{font-size:21px}
+  .links a{font-size:14px}
+  .hero p{font-size:17px}
+  .hero-photo{aspect-ratio:4/3}
+  .hero .button{width:100%;text-align:center}
+  .intro{font-size:17px}
+  .car{grid-template-columns:1fr}
+  .gallery,.gallery img{min-height:0}
+  .gallery img{height:auto;aspect-ratio:4/3}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
 
 <body>
-
-<nav aria-label="Main navigation">
-  <a class="logo" href="#home">RAED ALMAGAL</a>
-
-  <div class="nav-links">
-    <a href="#cars">Vehicles</a>
-    <a href="#about" lang="ar">من نحن</a>
-    <a href="#services" lang="ar">نشاطنا</a>
-    <a href="#imports" lang="ar">مجالات الاستيراد</a>
-    <a href="#contact">Contact</a>
+<header>
+  <div class="container nav">
+    <a class="logo" dir="ltr" href="#home">RAED ALMAGAL</a>
+    <nav class="links" aria-label="القائمة الرئيسية">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#fields">مجالات الاستيراد</a>
+      <a href="#cars">السيارات</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
   </div>
-</nav>
+</header>
 
 <main>
 
+<!-- الجزء الأول: التعريف بالشركة -->
+
 <section class="hero" id="home">
-  <div>
-    <h1>RAED <span>ALMAGAL</span></h1>
-
-    <p>Import of Cars, Trucks &amp; Heavy Equipment</p>
-
-    <p class="hero-arabic" lang="ar" dir="rtl">
-      رائد المجال لاستيراد السيارات وقطع غيارها
-      والمعدات الثقيلة وقطع غيارها والشاحنات
-    </p>
-
-    <div class="hero-actions">
-      <a class="gold-button" href="#cars">View Vehicles</a>
-      <a class="outline-button" href="#about" lang="ar">تعرّف على الشركة</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-
-<section class="section arabic" id="about" lang="ar">
-  <div class="section-inner about-grid">
+  <div class="container hero-grid">
     <div>
-      <span class="eyebrow">من نحن</span>
-
-      <h2 class="about-heading">
-        رائد المجال<br>
-        <span>لاستيراد المركبات والمعدات</span>
-      </h2>
-
-      <p class="about-text">
-        شركة رائد المجال، مقرها طرابلس – ليبيا، تعمل في
-        استيراد السيارات وقطع غيارها، والشاحنات،
+      <div class="kicker">طرابلس، ليبيا</div>
+      <h1>رائد المجال</h1>
+      <p>
+        لاستيراد السيارات وقطع غيارها والشاحنات
         والمعدات الثقيلة وقطع غيارها.
       </p>
-
-      <p class="about-text">
-        يركّز نشاطنا على احتياجات الأفراد والشركات والمشروعات
-        من المركبات والمعدات، بحسب طبيعة الاستخدام
-        والمواصفات المطلوبة.
-      </p>
+      <a class="button silver-button" href="#cars">عرض السيارات ↓</a>
     </div>
 
-    <div class="about-panel">
-      <h3>تخصص واضح في الاستيراد</h3>
+    <img
+      class="hero-photo"
+      src="5BAB0611-9A59-4D19-A984-E3199F426F55.png"
+      alt="تويوتا هايلوكس المعروضة لدى رائد المجال"
+      fetchpriority="high">
+  </div>
+</section>
 
+<section id="about">
+  <div class="container">
+    <h2 class="section-heading">من نحن</h2>
+    <p class="intro">
+      شركة رائد المجال، شركة حديثة التأسيس في طرابلس – ليبيا،
+      تعمل في استيراد السيارات والشاحنات والمعدات الثقيلة
+      وقطع غيار السيارات والمعدات الثقيلة.
+    </p>
+
+    <div class="activity" id="activity">
+      <h3>نشاطنا</h3>
       <p>
-        نجمع مجالات السيارات والشاحنات والمعدات الثقيلة
-        وقطع الغيار ضمن نشاط استيراد يواكب
-        احتياجات السوق المحلي.
+        يتركّز نشاطنا على الاستيراد لتلبية احتياجات الأفراد
+        والشركات والمشروعات من المركبات والمعدات،
+        بحسب نوع الاستخدام والمواصفات المطلوبة.
       </p>
-
-      <span class="about-location">طرابلس، ليبيا</span>
     </div>
   </div>
 </section>
 
-<!-- VEHICLES -->
+<section class="fields" id="fields">
+  <div class="container">
+    <h2 class="section-heading">مجالات الاستيراد</h2>
 
-<section class="section" id="cars">
-  <div class="section-inner">
-    <h2 class="section-title">Available <span>Vehicles</span></h2>
+    <div class="field-grid">
+      <article class="field">
+        <h3>السيارات وقطع غيارها</h3>
+        <p>
+          سيارات الركوب والدفع الرباعي والبيك أب،
+          إلى جانب قطع غيار السيارات.
+        </p>
+      </article>
 
-    <div class="search-box">
+      <article class="field">
+        <h3>الشاحنات</h3>
+        <p>
+          الشاحنات والمركبات التجارية المرتبطة
+          باحتياجات النقل والأعمال.
+        </p>
+      </article>
+
+      <article class="field">
+        <h3>المعدات الثقيلة</h3>
+        <p>
+          المعدات الثقيلة المستخدمة في البناء
+          والمشروعات، وقطع غيارها.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- الجزء الثاني: عرض السيارات -->
+
+<section class="stock" id="cars">
+  <div class="container">
+    <h2 class="section-heading">السيارات المتاحة</h2>
+    <p class="stock-intro">
+      تصفّح الصور والمواصفات، وتواصل معنا للاستفسار عن السيارة.
+    </p>
+
+    <div class="search-wrap">
       <input
         type="search"
         id="search"
-        placeholder="Search for a vehicle..."
-        aria-label="Search for a vehicle"
+        placeholder="ابحث باسم السيارة أو سنة الصنع..."
+        aria-label="البحث في السيارات"
         oninput="searchCars()">
     </div>
 
-    <div class="cars-grid" id="cars-grid"></div>
+    <div class="car-list" id="car-list"></div>
 
-    <p class="empty" id="no-results" role="status" hidden>
-      No matching vehicles found.
+    <p id="empty" class="empty" role="status" hidden>
+      لا توجد سيارات مطابقة للبحث.
     </p>
   </div>
 </section>
 
-<!-- COMPANY ACTIVITY -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-heading">تواصل معنا</h2>
 
-<section class="section activities arabic" id="services" lang="ar">
-  <div class="section-inner">
-    <h2 class="section-title">نشاط <span>الشركة</span></h2>
+    <div class="contact-grid">
+      <a class="contact-card" href="tel:+218918488999">
+        <h3>الهاتف</h3>
+        <p dir="ltr">+218 91 848 8999</p>
+      </a>
 
-    <p class="section-intro">
-      الاستيراد هو محور نشاط رائد المجال، ويشمل
-      المركبات والمعدات وقطع الغيار المرتبطة بها.
-    </p>
+      <a class="contact-card" href="mailto:RAEDALMAGAL@gmail.com">
+        <h3>البريد الإلكتروني</h3>
+        <p dir="ltr">RAEDALMAGAL@gmail.com</p>
+      </a>
 
-    <div class="activity-grid">
-      <article class="activity-card">
-        <span class="activity-number">01</span>
-        <h3>استيراد السيارات</h3>
-        <p>
-          سيارات الركوب، وسيارات الدفع الرباعي،
-          والبيك أب لتلبية احتياجات الاستخدام الشخصي
-          واستخدامات الأعمال.
-        </p>
-      </article>
-
-      <article class="activity-card">
-        <span class="activity-number">02</span>
-        <h3>استيراد الشاحنات والمعدات</h3>
-        <p>
-          الشاحنات والمركبات التجارية والمعدات الثقيلة
-          المرتبطة بأعمال النقل والبناء والمشروعات.
-        </p>
-      </article>
-
-      <article class="activity-card">
-        <span class="activity-number">03</span>
-        <h3>استيراد قطع الغيار</h3>
-        <p>
-          قطع غيار السيارات والمعدات الثقيلة،
-          بحسب النوع والمواصفات المطلوبة.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- IMPORT FIELDS -->
-
-<section class="section arabic" id="imports" lang="ar">
-  <div class="section-inner">
-    <h2 class="section-title">مجالات <span>الاستيراد</span></h2>
-
-    <p class="section-intro">
-      مجالات متنوعة تحت نشاط واحد، لخدمة الاحتياجات
-      الشخصية والتجارية واحتياجات المشروعات.
-    </p>
-
-    <div class="import-grid">
-      <article class="import-card">
-        <h3>سيارات الركوب</h3>
-        <p>
-          سيارات السيدان وغيرها من سيارات الاستخدام
-          اليومي والشخصي.
-        </p>
-      </article>
-
-      <article class="import-card">
-        <h3>الدفع الرباعي والبيك أب</h3>
-        <p>
-          مركبات للاستخدامات العائلية والتجارية
-          ومتطلبات العمل المختلفة.
-        </p>
-      </article>
-
-      <article class="import-card">
-        <h3>الشاحنات والمركبات التجارية</h3>
-        <p>
-          مركبات مرتبطة بأنشطة النقل والأعمال
-          والاحتياجات التجارية.
-        </p>
-      </article>
-
-      <article class="import-card">
-        <h3>المعدات الثقيلة وقطع الغيار</h3>
-        <p>
-          معدات البناء والمشروعات وقطع غيار المعدات
-          الثقيلة والسيارات.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- COMPANY DETAILS -->
-
-<section id="company-info" class="company-info">
-  <h2>RAED ALMAGAL</h2>
-
-  <p class="company-subtitle">
-    Import of Vehicles, Spare Parts, Heavy Equipment and Trucks
-  </p>
-
-  <p class="company-arabic" lang="ar" dir="rtl">
-    رائد المجال لاستيراد السيارات وقطع غيارها
-    والمعدات الثقيلة وقطع غيارها والشاحنات
-  </p>
-
-  <div class="company-cards">
-    <div class="info-card">
-      <h3>Location</h3>
-      <p>Tripoli, Libya</p>
+      <div class="contact-card">
+        <h3>الموقع</h3>
+        <p>طرابلس، ليبيا</p>
+      </div>
     </div>
 
-    <a class="info-card"
-       href="https://wa.me/218918488999"
-       target="_blank"
-       rel="noopener noreferrer">
-      <h3>WhatsApp</h3>
-      <p dir="ltr">+218 91 848 8999</p>
-    </a>
-
-    <a class="info-card" href="mailto:RAEDALMAGAL@gmail.com">
-      <h3>Email</h3>
-      <p>RAEDALMAGAL@gmail.com</p>
-    </a>
+    <div class="contact-action">
+      <a class="whatsapp"
+         href="https://wa.me/218918488999"
+         target="_blank"
+         rel="noopener noreferrer">
+        تواصل معنا عبر واتساب
+      </a>
+    </div>
   </div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="section contact" id="contact">
-  <h2 class="section-title">Contact <span>Us</span></h2>
-
-  <p><a href="tel:+218918488999">+218 91 848 8999</a></p>
-  <p><a href="mailto:RAEDALMAGAL@gmail.com">RAEDALMAGAL@gmail.com</a></p>
-  <p>Tripoli, Libya</p>
-
-  <a class="whatsapp"
-     href="https://wa.me/218918488999"
-     target="_blank"
-     rel="noopener noreferrer">
-    Contact us on WhatsApp
-  </a>
 </section>
 
 </main>
 
 <footer>
-  © 2026 RAED ALMAGAL — Cars, Trucks &amp; Heavy Equipment Import
+  <strong dir="ltr">RAED ALMAGAL</strong>
+  <p>© 2026 رائد المجال — جميع الحقوق محفوظة</p>
 </footer>
 
 <script>
-/* VEHICLES — existing details and image filenames */
+/* بيانات السيارات والصور الحالية */
 
 const vehicles = [
   {
-    id: 4,
-    name: "TOYOTA HILUX 2025 SPORT",
-    searchName: "TOYOTA HILUX 2025 SPORT",
-    specs: [
-      "Year: 2025",
-      "Sport",
-      "Color: Black",
-      "Mileage: 0 KM"
+    id:4,
+    name:"TOYOTA HILUX 2025 SPORT",
+    keywords:"تويوتا هايلوكس هيلوكس Hilux Toyota Sport 2025",
+    specs:[
+      ["السنة","2025"],
+      ["الفئة","Sport"],
+      ["اللون","أسود"],
+      ["المسافة","0 كم"]
     ],
-    price: "Contact for Price",
-    message: "Hello, I am interested in the 2025 TOYOTA HILUX SPORT",
-    button: "Contact via WhatsApp",
-    start: 0,
-    images: [
+    price:"تواصل لمعرفة السعر",
+    message:"Hello, I am interested in the 2025 TOYOTA HILUX SPORT",
+    start:0,
+    images:[
       "5BAB0611-9A59-4D19-A984-E3199F426F55.png",
       "9069FB10-5FB8-47D2-8D4A-6A5F84B7C97C.png",
       "232BF3E3-2B3B-42B2-94C6-072BA1B23D0C.png"
     ]
   },
   {
-    id: 1,
-    name: "KIA OPTIMA",
-    searchName: "KIA OPTIMA 2018",
-    specs: [
-      "Year: 2018",
-      "Automatic",
-      "Petrol",
-      "2.4L",
-      "Color: White",
-      "Mileage: 35,000 KM"
+    id:1,
+    name:"KIA OPTIMA 2018",
+    keywords:"كيا اوبتيما أوبتيما Kia Optima 2018",
+    specs:[
+      ["السنة","2018"],
+      ["ناقل الحركة","أوتوماتيك"],
+      ["الوقود","بنزين"],
+      ["المحرك","2.4 لتر"],
+      ["اللون","أبيض"],
+      ["المسافة","35,000 كم"]
     ],
-    price: "55,000 LYD",
-    message: "Hello, I am interested in the 2018 KIA OPTIMA",
-    button: "WhatsApp",
-    start: 0,
-    images: [
+    price:"55,000 دينار ليبي",
+    message:"Hello, I am interested in the 2018 KIA OPTIMA",
+    start:0,
+    images:[
       "IMG_7370.jpeg",
       "IMG_7369.jpeg",
       "IMG_7368.jpeg"
     ]
   },
   {
-    id: 2,
-    name: "TOYOTA CAMRY",
-    searchName: "TOYOTA CAMRY 2010",
-    specs: [
-      "Year: 2010",
-      "Automatic",
-      "Petrol",
-      "2.4L",
-      "Color: White",
-      "Mileage: 30,000 KM"
+    id:2,
+    name:"TOYOTA CAMRY 2010",
+    keywords:"تويوتا كامري Toyota Camry 2010",
+    specs:[
+      ["السنة","2010"],
+      ["ناقل الحركة","أوتوماتيك"],
+      ["الوقود","بنزين"],
+      ["المحرك","2.4 لتر"],
+      ["اللون","أبيض"],
+      ["المسافة","30,000 كم"]
     ],
-    price: "45,000 LYD",
-    message: "Hello, I am interested in the 2010 TOYOTA CAMRY",
-    button: "WhatsApp",
-    start: 0,
-    images: [
+    price:"45,000 دينار ليبي",
+    message:"Hello, I am interested in the 2010 TOYOTA CAMRY",
+    start:0,
+    images:[
       "IMG_7367.jpeg",
       "IMG_7366.jpeg",
       "IMG_7365.jpeg",
@@ -874,39 +576,37 @@ const vehicles = [
     ]
   },
   {
-    id: 5,
-    name: "TOYOTA LAND CRUISER",
-    searchName: "TOYOTA LAND CRUISER 2025",
-    specs: [
-      "Year: 2025",
-      "Color: White",
-      "Mileage: 0 KM"
+    id:5,
+    name:"TOYOTA LAND CRUISER 2025",
+    keywords:"تويوتا لاند كروزر لاندكروزر Toyota Land Cruiser 2025",
+    specs:[
+      ["السنة","2025"],
+      ["اللون","أبيض"],
+      ["المسافة","0 كم"]
     ],
-    price: "Contact for Price",
-    message: "Hello, I am interested in the 2025 TOYOTA LAND CRUISER",
-    button: "Contact via WhatsApp",
-    start: 0,
-    images: [
+    price:"تواصل لمعرفة السعر",
+    message:"Hello, I am interested in the 2025 TOYOTA LAND CRUISER",
+    start:0,
+    images:[
       "78259E01-4E17-4440-9662-A16C50FED19C.jpeg",
       "IMG_6908.jpeg",
       "IMG_6907.jpeg"
     ]
   },
   {
-    id: 3,
-    name: "TOYOTA TACOMA",
-    searchName: "TOYOTA TACOMA 2021",
-    specs: [
-      "Year: 2021",
-      "Manual Gear",
-      "Color: Black",
-      "Mileage: 17,000 Miles"
+    id:3,
+    name:"TOYOTA TACOMA 2021",
+    keywords:"تويوتا تاكوما Toyota Tacoma 2021",
+    specs:[
+      ["السنة","2021"],
+      ["ناقل الحركة","يدوي"],
+      ["اللون","أسود"],
+      ["المسافة","17,000 ميل"]
     ],
-    price: "139,000 LYD",
-    message: "Hello, I am interested in the 2021 TOYOTA TACOMA",
-    button: "WhatsApp",
-    start: 2,
-    images: [
+    price:"139,000 دينار ليبي",
+    message:"Hello, I am interested in the 2021 TOYOTA TACOMA",
+    start:2,
+    images:[
       "IMG_6885.jpeg",
       "IMG_6884.jpeg",
       "E2D15835-F8C4-4B09-AC16-CEC51D7EA674.jpeg",
@@ -917,107 +617,114 @@ const vehicles = [
 ];
 
 const currentImage = {};
-const carsGrid = document.getElementById("cars-grid");
+const list = document.getElementById("car-list");
 
-function makeElement(tag, className, text) {
-  const element = document.createElement(tag);
-  if (className) element.className = className;
-  if (text !== undefined) element.textContent = text;
-  return element;
+function element(tag,className,text){
+  const item=document.createElement(tag);
+  if(className) item.className=className;
+  if(text!==undefined) item.textContent=text;
+  return item;
 }
 
-vehicles.forEach(function(car) {
-  currentImage[car.id] = car.start;
+vehicles.forEach(function(car){
+  currentImage[car.id]=car.start;
 
-  const card = makeElement("article", "car-card");
-  card.dataset.name = car.searchName;
+  const card=element("article","car");
+  card.dataset.search=(car.name+" "+car.keywords).toLowerCase();
 
-  const imageContainer = makeElement("div", "car-image");
+  const gallery=element("div","gallery");
 
-  const image = document.createElement("img");
-  image.id = "car" + car.id + "-image";
-  image.src = car.images[car.start];
-  image.alt = car.searchName + " — photo " + (car.start + 1);
-  image.loading = "lazy";
-  image.decoding = "async";
+  const image=element("img");
+  image.id="image-"+car.id;
+  image.src=car.images[car.start];
+  image.alt=car.name+" — صورة "+(car.start+1);
+  image.loading="lazy";
+  image.decoding="async";
 
-  const previous = makeElement("button", "image-btn prev", "‹");
-  previous.type = "button";
-  previous.setAttribute("aria-label", "Previous photo of " + car.name);
-  previous.addEventListener("click", function() {
-    changeImage(car.id, -1);
+  const previous=element("button","arrow previous","‹");
+  previous.type="button";
+  previous.setAttribute("aria-label","الصورة السابقة: "+car.name);
+  previous.addEventListener("click",function(){
+    changeImage(car.id,-1);
   });
 
-  const next = makeElement("button", "image-btn next", "›");
-  next.type = "button";
-  next.setAttribute("aria-label", "Next photo of " + car.name);
-  next.addEventListener("click", function() {
-    changeImage(car.id, 1);
+  const next=element("button","arrow next","›");
+  next.type="button";
+  next.setAttribute("aria-label","الصورة التالية: "+car.name);
+  next.addEventListener("click",function(){
+    changeImage(car.id,1);
   });
 
-  const counter = makeElement(
+  const counter=element(
     "div",
-    "image-counter",
-    (car.start + 1) + " / " + car.images.length
+    "counter",
+    (car.start+1)+" / "+car.images.length
   );
-  counter.id = "counter" + car.id;
-  counter.setAttribute("aria-live", "polite");
+  counter.id="counter-"+car.id;
+  counter.setAttribute("aria-live","polite");
 
-  imageContainer.append(image, previous, next, counter);
+  gallery.append(image,previous,next,counter);
 
-  const info = makeElement("div", "car-info");
-  const title = makeElement("h3", "", car.name);
-  const specs = makeElement("div", "specs");
+  const info=element("div","car-info");
+  const title=element("h3","",car.name);
+  title.lang="en";
 
-  car.specs.forEach(function(spec) {
-    specs.appendChild(makeElement("div", "", spec));
+  const specs=element("div","specs");
+
+  car.specs.forEach(function(pair){
+    const spec=element("div","spec");
+    spec.append(
+      element("span","",pair[0]),
+      element("strong","",pair[1])
+    );
+    specs.appendChild(spec);
   });
 
-  const price = makeElement("div", "price", car.price);
-  const whatsapp = makeElement("a", "whatsapp", car.button);
-  whatsapp.href = "https://wa.me/218918488999?text=" +
-    encodeURIComponent(car.message);
-  whatsapp.target = "_blank";
-  whatsapp.rel = "noopener noreferrer";
+  const price=element("p","price",car.price);
 
-  info.append(title, specs, price, whatsapp);
-  card.append(imageContainer, info);
-  carsGrid.appendChild(card);
+  const whatsapp=element("a","whatsapp","استفسر عبر واتساب");
+  whatsapp.href="https://wa.me/218918488999?text="+
+    encodeURIComponent(car.message);
+  whatsapp.target="_blank";
+  whatsapp.rel="noopener noreferrer";
+
+  info.append(title,specs,price,whatsapp);
+  card.append(gallery,info);
+  list.appendChild(card);
 });
 
-function changeImage(carNumber, direction) {
-  const car = vehicles.find(function(item) {
-    return item.id === carNumber;
+function changeImage(id,direction){
+  const car=vehicles.find(function(item){
+    return item.id===id;
   });
+  if(!car) return;
 
-  if (!car) return;
+  currentImage[id]=
+    (currentImage[id]+direction+car.images.length)%car.images.length;
 
-  currentImage[carNumber] =
-    (currentImage[carNumber] + direction + car.images.length) %
-    car.images.length;
+  const position=currentImage[id];
+  const image=document.getElementById("image-"+id);
 
-  const position = currentImage[carNumber];
-  const image = document.getElementById("car" + carNumber + "-image");
-  const counter = document.getElementById("counter" + carNumber);
+  image.src=car.images[position];
+  image.alt=car.name+" — صورة "+(position+1);
 
-  image.src = car.images[position];
-  image.alt = car.searchName + " — photo " + (position + 1);
-  counter.textContent = (position + 1) + " / " + car.images.length;
+  document.getElementById("counter-"+id).textContent=
+    (position+1)+" / "+car.images.length;
 }
 
-function searchCars() {
-  const search = document.getElementById("search")
+function searchCars(){
+  const query=document.getElementById("search")
     .value.toLowerCase().trim();
 
-  let visibleCount = 0;
+  let visible=0;
 
-  document.querySelectorAll(".car-card").forEach(function(card) {
-    const matches = card.dataset.name.toLowerCase().includes(search);
-    card.hidden = !matches;
-    if (matches) visibleCount++;
+  document.querySelectorAll(".car").forEach(function(card){
+    const matches=card.dataset.search.includes(query);
+    card.hidden=!matches;
+    if(matches) visible++;
   });
 
-  document.getElementById("no-results").hidden = visibleCount !== 0;
+  document.getElementById("empty").hidden=visible>0;
 }
 </script>
 
