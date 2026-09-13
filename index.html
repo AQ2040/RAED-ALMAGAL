@@ -217,7 +217,60 @@ section{padding:48px 0}
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 }
-</style>
+/* صورة الواجهة كخلفية */
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(10, 12, 15, .94) 0%,
+      rgba(10, 12, 15, .76) 42%,
+      rgba(10, 12, 15, .25) 100%
+    ),
+    url("5BAB0611-9A59-4D19-A984-E3199F426F55.png")
+    center / cover no-repeat;
+}
+
+/* إخفاء الصورة المنفصلة */
+.hero-image {
+  display: none;
+}
+
+.hero-grid {
+  display: block;
+}
+
+.hero-grid > div {
+  max-width: 590px;
+}
+
+.hero h1,
+.hero .legal {
+  color: #fff;
+}
+
+.hero-copy,
+.hero .eyebrow {
+  color: #e0e4e9;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: 520px;
+    padding: 60px 0;
+    background-position: center;
+    background-image:
+      linear-gradient(
+        rgba(10, 12, 15, .65),
+        rgba(10, 12, 15, .92)
+      ),
+      url("5BAB0611-9A59-4D19-A984-E3199F426F55.png");
+  }
+}</style>
 </head>
 
 <body>
